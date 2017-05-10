@@ -32,9 +32,15 @@
 
 		function updateText()
 		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
+			var currentChar = words[word_counter][character_counter++];
 
-			if(character_counter == words[word_counter].length)
+			if(currentChar == ` `){
+				el.innerHTML = el.innerHTML+"&nbsp";
+			}else{
+				el.innerHTML = el.innerHTML+currentChar;
+			}
+
+			if(character_counter > words[word_counter].length)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
@@ -46,7 +52,7 @@
 			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText,500);
 
 	</script>
 
